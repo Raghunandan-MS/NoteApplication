@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Note Application </title>
+	<link rel="shortcut icon" href="#" />
+	<style>
+		p{
+			font-size: 30px;
+			font-family: Helvetica, sans-serif ;
+			color: teal;
+	}
+
+	h1{
+		text-shadow: 3px 3px 4px black;
+	}
+
+
+	input[type=submit]{
+                 width: 100px;
+                 position: relative;
+                 background: #09c;
+                 color: #fff;
+                 font-family: tahoma,geneva,algerian;
+                 height: 30px;
+                 -webkit-border-radius: 15px;
+                 -moz-border-radius: 15px;
+                 border-radius: 15px;
+                 border: 1px solid #999;
+             }
+
+
+	</style>
+</head>
+<script type="text/javascript">
+	
+	function createNote()
+	{
+		window.open("/create" , "_blank");
+	}
+
+	function readNote()
+	{
+		window.open("/read" , "_blank");
+	}
+
+	function updateNote()
+	{
+		window.open("/update" , "_blank");
+	}
+
+	function deleteNote()
+	{
+		window.open("/delete" , "_blank");
+	}
+
+</script>
+<body>
+	<h1><center> Note Application </center></h1>
+</body>
+<br>
+<br>
+<center>
+<input type="submit" value="Create Note" onclick="createNote()"/> <!-- Button that creates a Note Area -->
+<br>
+<br>
+<input type="submit" value="Read Note" onclick = "readNote()"/> <!-- Button that reads a Note Area -->
+<br>
+<br>
+<input type="submit" value="Update Note" onclick = "updateNote()"/> <!-- Button that updates a Note Area -->
+<br>
+<br>
+<input type="submit" value="Delete Note" onclick="deleteNote()"/> <!-- Button that deletes a Note Area -->
+<br>
+<br>
+</center>
+</html>

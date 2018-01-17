@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> New Note  </title>
+	<style>
+		p{
+			font-size: 30px;
+			font-family: Helvetica, sans-serif ;
+			color: teal;
+	}
+
+	h1{
+		text-shadow: 3px 3px 4px black;
+	}
+
+	input[type=submit]{
+                 width: 100px;
+                 position: relative;
+                 background: #09c;
+                 color: #fff;
+                 font-family: tahoma,geneva,algerian;
+                 height: 30px;
+                 -webkit-border-radius: 15px;
+                 -moz-border-radius: 15px;
+                 border-radius: 15px;
+                 border: 1px solid #999;
+             }
+
+    textarea{
+
+    	height:100px,
+    	width: 750px;
+    }
+	</style>
+</head>
+<script type="text/javascript">
+	function saveText()
+	{
+		var lastNote = localStorage.key(localStorage.length - 1);
+		//window.alert(lastNote);
+		if(lastNote == null)
+		{
+			localStorage.setItem("Note1" , document.getElementById("txtArea").value);
+			window.alert("Note has been Successfully Saved");
+			document.getElementById("txtArea").innerHTML="";
+		}
+		else
+		{
+			var lastNoteId = Number(lastNote.slice(-1));
+			var newNoteId = lastNoteId + 1;
+			var txtInput = document.getElementById("txtArea").value;
+			localStorage.setItem("Note"+newNoteId , txtInput);
+			window.alert("Note has been Successfully Saved!!");
+			document.getElementById("txtArea").innerHTML="";
+		}
+	}
+</script>
+<body>
+	<center>
+	<p> Enter your Text here ... </p>
+	<textarea id="txtArea">
+		
+	</textarea>
+	<br>
+	<br>
+	<input type="submit" , value="Save Note!!" onclick="saveText()">
+</center>
+</body>
+</html>

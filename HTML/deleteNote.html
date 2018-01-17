@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Deleting Note </title>
+	<link rel="shortcut icon" href="#" />
+	<style>
+		p{
+			font-size: 30px;
+			font-family: Helvetica, sans-serif ;
+			color: teal;
+	}
+
+	h1{
+		text-shadow: 3px 3px 4px black;
+	}
+
+
+	input[type=submit]{
+                 width: 100px;
+                 position: relative;
+                 background: #09c;
+                 color: #fff;
+                 font-family: tahoma,geneva,algerian;
+                 height: 30px;
+                 -webkit-border-radius: 15px;
+                 -moz-border-radius: 15px;
+                 border-radius: 15px;
+                 border: 1px solid #999;
+             }
+
+
+	</style>
+</head>
+<script type="text/javascript">
+		function startJS()
+		{
+			noteCnt = localStorage.length;
+			for(i=0;i<noteCnt;i++)
+			{
+				var selectElement = document.getElementById("cnt");
+				var optElement = document.createElement("option");
+				optElement.id = localStorage.key(i);
+				//window.alert(optElement.id);
+				optElement.innerHTML = localStorage.key(i);
+				optElement.value = localStorage.key(i);
+				//window.alert(optElement.value + " " + optElement.innerHTML);
+				selectElement.appendChild(optElement);
+			}
+		}
+
+		function deleteText()
+		{
+			if(localStorage.length == 0)
+			{
+				window.alert("Nothing to Delete!!\n");
+			}
+			else
+			{
+				var select = document.getElementById("cnt");
+				var valueRequested = select.value;
+				localStorage.removeItem(valueRequested);
+				window.alert(valueRequested + "successfully Deleted");
+				select.removeChild(document.getElementById(valueRequested));
+			}
+		}
+
+</script>
+<body onload = startJS()>
+	<center>
+	<select id="cnt">
+
+	</select>
+
+	<br>
+	<br>
+
+	<input type="submit" , value="Delete Note!!" onclick="deleteText()">
+</center>
+</body>
+</html>

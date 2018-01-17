@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Updating Note </title>
+	<link rel="shortcut icon" href="#" />
+	<style>
+		p{
+			font-size: 30px;
+			font-family: Helvetica, sans-serif ;
+			color: teal;
+	}
+
+	h1{
+		text-shadow: 3px 3px 4px black;
+	}
+
+
+	input[type=submit]{
+                 width: 100px;
+                 position: relative;
+                 background: #09c;
+                 color: #fff;
+                 font-family: tahoma,geneva,algerian;
+                 height: 30px;
+                 -webkit-border-radius: 15px;
+                 -moz-border-radius: 15px;
+                 border-radius: 15px;
+                 border: 1px solid #999;
+             }
+
+
+	</style>
+</head>
+<script type="text/javascript">
+
+		function startJS()
+		{
+			noteCnt = localStorage.length;
+			//window.alert(noteCnt);
+			for(i=0;i<noteCnt;i++)
+			{
+				var selectElement = document.getElementById("cnt");
+				var optElement = document.createElement("option");
+				optElement.innerHTML = localStorage.key(i);
+				optElement.value = localStorage.key(i);
+				selectElement.appendChild(optElement);
+			}
+		}
+
+		function updateText()
+		{
+			var noteSelect = document.getElementById("cnt").value;
+			document.getElementById("updtArea").value = localStorage.getItem(noteSelect);
+			save();
+		}
+
+		function save()
+		{
+			var selectNo = document.getElementById("cnt").value;
+			var txtVal = document.getElementById('updtArea').value;
+			localStorage.setItem(selectNo , txtVal);
+		}
+
+</script>
+<body onload = startJS()>
+	<center>
+	<textarea id="updtArea">
+		
+	</textarea>
+
+	<br>
+	<br>
+
+	<select id="cnt">
+
+	</select>
+	<br>
+	<br>
+
+	<input type="submit" value="Update A Note" onclick="updateText()">
+	<br>
+	<br>
+
+	<input type="submit" value="Save Changes!!" onclick = "save()">
+</center>
+</body>
+</html>

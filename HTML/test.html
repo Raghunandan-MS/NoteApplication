@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title> Test Page </title>
+</head>
+<script>
+	function fire()
+	{
+		var res = localStorage.key(localStorage.length - 1);
+		window.alert(Number(res.slice(-1)));
+	}
+</script>
+<body>
+	<button onclick="fire()"> Click Me ! </button>
+</body>
+</html>
